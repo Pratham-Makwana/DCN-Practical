@@ -8,7 +8,7 @@ void main()
 	char buff[1024];
 	int flag[2];
 	char *data="hello how are you";
-	//pipe(flag);
+	pipe(flag);
 
 	write(flag[1],data,strlen(data));
 
