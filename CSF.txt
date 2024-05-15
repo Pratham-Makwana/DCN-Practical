@@ -2,6 +2,12 @@
 
 1.Demonstrate the process of generating a public key and private key pair in RSA encryption.
 
+openssl :- cryptography software library makes communication over computer networks more secure
+.pem(Privacy-enhanced Electronic Mail) : for store the ssl certificates
+2048
+pkeyutl : public key algorithm utility perform low level public key operation
+-pubin : input file is public key
+
 ANS:
 openssl version  
 openssl list -cipher-commands 
@@ -36,6 +42,8 @@ openssl pkeyutl  -decrypt -in recive -out msg -inkey Privatekeyusr2.pem
 
 
 2.Perform SYN flood attack, and exploit the TCP handshake process? 
+
+hping3 : TCP penetration testing tool
 
 ANS:
 hping3 -S  200.200.200.2 -a 200.200.200.1 -p 80 -d 110 --flood
